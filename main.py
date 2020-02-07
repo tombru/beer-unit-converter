@@ -26,7 +26,7 @@ class KeywordQueryEventListener(EventListener):
         query  = event.get_argument()
         data = {'new_name': '' }
         if query.isdigit():
-            data['new_name'] = '%s °L = %s EBC' %  (query, ((2.65 * int(query)) - 1.2)) } #EBC=(Lx2.65) - 1.2
+            data['new_name'] = '%s °L = %s EBC' %  (query, ((2.65 * int(query)) - 1.2))
         
         items = [ExtensionResultItem(icon='images/icon.png',
                                              name='°L -> EBC',
