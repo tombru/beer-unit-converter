@@ -24,12 +24,12 @@ class KeywordQueryEventListener(EventListener):
 
     def on_event(self, event, extension):
         query  = event.get_argument()
-        if query == None:
-            query = ''
-        #item_name = extension.preferences['item_name']
-        data = {'new_name': '%s EBC' % ((2.65 * int(query))-1.2)} #EBC=(Lx2.65) - 1.2
+        data = {'new_name': '' }
+        if query.isdigit():
+            data['new_name'] = '%s °L = %s EBC' %  (query, ((2.65 * int(query)) - 1.2)) } #EBC=(Lx2.65) - 1.2
+        
         items = [ExtensionResultItem(icon='images/icon.png',
-                                             name='L -> EBC',
+                                             name='°L -> EBC',
                                              description='Lovibind to EBC',
                                              on_enter=ExtensionCustomAction(data, keep_app_open=True))]
         logger.info('preferences %s' % json.dumps(extension.preferences))
