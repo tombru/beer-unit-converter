@@ -25,7 +25,7 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         query  = event.get_argument()
         data = {'new_name': '' }
-        if query.isdigit():
+        if query and query.isdigit():
             data['new_name'] = '%s °L = %s EBC' %  (query, ((2.65 * int(query)) - 1.2))
         
         items = [ExtensionResultItem(icon='images/icon.png',
