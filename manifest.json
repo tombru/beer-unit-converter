@@ -20,13 +20,6 @@
       "name": "Item name",
       "description": "Name for each item",
       "default_value": "Item"
-    },
-    {
-      "id": "memo",
-      "type": "text",
-      "name": "Memo",
-      "description": "Write something here",
-      "default_value": ""
     }
   ]
 }
