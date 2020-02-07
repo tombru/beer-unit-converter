@@ -23,16 +23,16 @@ class DemoExtension(Extension):
 class KeywordQueryEventListener(EventListener):
 
     def on_event(self, event, extension):
-        items = []
+        query  = event.get_argument()
+        if query == None:
+            query = ''
+        #item_name = extension.preferences['item_name']
+        data = {'new_name': '%s EBC' % ((2.65 * int(query))-1.2)} #EBC=(Lx2.65) - 1.2
+        items = [ExtensionResultItem(icon='images/icon.png',
+                                             name='L -> EBC',
+                                             description='Lovibind to EBC',
+                                             on_enter=ExtensionCustomAction(data, keep_app_open=True))]
         logger.info('preferences %s' % json.dumps(extension.preferences))
-        for i in range(5):
-            item_name = extension.preferences['item_name']
-            data = {'new_name': '%s %s was clicked' % (item_name, i)}
-            items.append(ExtensionResultItem(icon='images/icon.png',
-                                             name='%s %s' % (item_name, i),
-                                             description='Item description %s' % i,
-                                             on_enter=ExtensionCustomAction(data, keep_app_open=True)))
-
         return RenderResultListAction(items)
 
 

@@ -12,7 +12,7 @@
       "id": "demo_kw",
       "type": "keyword",
       "name": "Demo",
-      "default_value": "dm"
+      "default_value": "beer"
     },
     {
       "id": "item_name",
